@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Signup Page</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Bree+Serif&family=Cabin:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/all.min.css">
+	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+	
+	<div class="container d-flex justify-content-center align-items-center vh-100">
+		<div class="login-window rounded-4 d-flex flex-column justify-content-between align-items-center">
+			<div class="logo-container rounded-circle d-flex justify-content-center align-items-center">
+				<i class="zmdi zmdi-landscape fs-1"></i>
+			</div>
+			<h2 class="text-white">Create a new account</h2>
+			<div class="inputs-container w-100">
+                <div class="form-floating mb-3">
+					<input type="text" class="form-control rounded-0 border-top-0 border-start-0 border-end-0 shadow-none" id="usernameInput" placeholder="Username">
+					<label for="usernameInput"><i class="zmdi zmdi-account"></i> Username</label>
+				</div>
+				<div class="alert username-alert alert-danger d-none" role="alert">
+					A valid Username:
+					<ul>
+						<li>Must start with a letter.</li>
+						<li>Can contain letters, numbers, underscores, or periods.</li>
+						<li>Must be 3-16 characters long.</li>
+					</ul>
+				</div>
+
+				<div class="form-floating mb-3">
+					<input type="email" class="form-control rounded-0 border-top-0 border-start-0 border-end-0 shadow-none" id="emailInput" placeholder="name@example.com">
+					<label for="emailInput"><i class="zmdi zmdi-email"></i> Email address</label>
+				</div>
+				<div class="alert email-alert alert-danger d-none" role="alert">
+					A valid email address should:
+					<ul>
+						<li>Start with letters, digits, or special characters like ., _, %, +, or -.</li>
+						<li>Include a @ symbol followed by a valid domain (e.g., example.com).</li>
+						<li>Have a domain that ends with a valid top-level domain (e.g., .com, .net).</li>
+					</ul>
+				</div>
+
+
+				<div class="form-floating mb-3">
+					<input type="password" class="form-control rounded-0 border-top-0 border-start-0 border-end-0 shadow-none" id="passwordInput" placeholder="Password">
+					<label for="passwordInput"><i class="zmdi zmdi-lock"></i> Password</label>
+				</div>
+				<div class="alert password-alert alert-danger d-none" role="alert">
+					A valid password should:
+					<ul>
+						<li>Be at least 8 characters long.</li>
+						<li>Include at least one uppercase letter (A-Z) and at least one lowercase letter (a-z).</li>
+						<li>Include at least one number (0-9).</li>
+						<li>Include at least one special character (e.g., @, $, !, %, *, ?, or &).</li>
+					</ul>
+				</div>
+				<div class="button-container d-flex justify-content-center w-100">
+					<button class="btn signup-btn px-4 py-2 fs-5">Signup</button>
+				</div>
+			</div>
+
+			<a href="#" class="text-decoration-none text-white">Do you alredy have an account? Login here</a>
+		</div>
+	</div>
+
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/signup.js" type="module"></script>
+</body>
+</html>

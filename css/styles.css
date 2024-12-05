@@ -1,0 +1,129 @@
+body
+{
+    background: url(../images/bg-01.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    font-family: "Cabin", sans-serif;
+}
+
+body::before
+{
+    position: fixed;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.login-window
+{
+    position: relative;
+    width: 500px;
+    height: 600px;
+    background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+    padding: 30px 20px;
+    z-index: 10;
+}
+
+
+.login-window .logo-container
+{
+    width: 90px;
+    height: 90px;
+    background-color: azure;
+}
+
+.form-floating input
+{
+    background-color: transparent;
+    border-width: 2px;
+    border-color: rgb(107, 107, 107);
+    color: white;
+}
+
+.form-floating input:focus
+{
+    background-color: transparent;
+    border-color: white;
+    color: white;
+}
+.form-floating label
+{
+    color: white;
+    background-color: transparent;
+}
+
+.form-floating>.form-control~label::after
+{
+    background-color: transparent !important;
+}
+
+
+.button-container button
+{
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+    transition: all 0.5s;
+}
+
+.button-container button:hover
+{
+    color: white;
+    background: -webkit-linear-gradient(bottom, #7579ff, #b224ef);
+}
+
+.login-window a
+{
+    opacity: 1;
+}
+
+.user-name-span
+{
+    cursor: pointer;
+}
+
+.alert
+{
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.alert ul
+{
+    margin-bottom: 0;
+}
+
+/* .email-alert
+{
+    position: absolute;
+    top: 340px;
+    left: 500px; 
+    transform: translateY(-50%);
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.email-alert::before
+{
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #f8d7da transparent transparent;
+    z-index: 100;
+    width: 30px;
+} */
+
