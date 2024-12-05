@@ -2,6 +2,7 @@ import {exportObj} from './index.js';
 const usernameInput = document.querySelector("#usernameInput");
 const signupBtn = document.querySelector(".signup-btn");
 const usernameAlert = document.querySelector(".username-alert");
+const signupAlert = document.querySelector(".signup-alert");
 let usernameGlobalState = false;
 let usersContainer = [];
 
@@ -18,7 +19,6 @@ usernameInput.addEventListener("input", function(){
         usernameInput.classList.add("is-invalid");
     }
 });
-
 
 exportObj.emailInput.addEventListener('input', function(){
     const inputState = exportObj.emailValidation(emailInput.value);
@@ -48,7 +48,10 @@ exportObj.passwordInput.addEventListener('input', function(){
     }
 });
 
+
+
 signupBtn.addEventListener('click', function(){
+    let signupState= false;
     if (usernameGlobalState === false) {
         usernameAlert.classList.remove("d-none");
         exportObj.emailAlert.classList.add("d-none");
@@ -74,8 +77,13 @@ signupBtn.addEventListener('click', function(){
         usernameAlert.classList.add("d-none");
         exportObj.emailAlert.classList.add("d-none");
         exportObj.passwordAlert.classList.add("d-none");
-        saveUserCredentialsToLocalStorage();
-        window.open('index.html',"_self");
+        signupState = checkForEmailDupliactionInLocalStorage();
+
+        if (signupState) {
+            saveUserCredentialsToLocalStorage();
+            window.open('index.html',"_self");
+        }
+        
     }
 })
 
@@ -94,6 +102,30 @@ function saveUserCredentialsToLocalStorage() {
     };
     usersContainer.push(userObj);
     localStorage.setItem("users-data", JSON.stringify(usersContainer));
+}
+
+function checkForEmailDupliactionInLocalStorage()
+{
+    let retVal = true;
+    let emailIsUnique = true;
+    for (let index = 0; index < usersContainer.length; index++) {
+        if (emailInput.value === usersContainer[index].email) {
+            emailIsUnique = false;
+            retVal = false;
+        }
+    }
+
+    if (emailIsUnique === false) {
+        console.log("This account is already registered! please login."); 
+        signupAlert.innerHTML = "This account is already registered! Please login."
+        signupAlert.classList.remove("d-none");
+    }
+    else
+    {
+        signupAlert.classList.add("d-none");
+    }
+
+    return retVal;
 }
 
 if (localStorage.getItem("users-data") !== null) {

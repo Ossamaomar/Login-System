@@ -3,6 +3,8 @@ const passwordInput = document.querySelector("#passwordInput");
 const loginBtn = document.querySelector(".login-btn");
 const emailAlert = document.querySelector(".email-alert");
 const passwordAlert = document.querySelector(".password-alert");
+const loginAlert = document.querySelector(".login-alert");
+let userIndex = 0;
 let emailTestGlobalState = false;
 let passwordTestGlobalState = false;
 
@@ -36,6 +38,7 @@ passwordInput.addEventListener('input', function(){
 });
 
 loginBtn.addEventListener('click', function(){
+    let loginState = false;
     if (emailTestGlobalState === false) {
         emailAlert.classList.remove("d-none")
         passwordAlert.classList.add("d-none")
@@ -50,7 +53,11 @@ loginBtn.addEventListener('click', function(){
     if (emailTestGlobalState === true & passwordTestGlobalState === true) {
         emailAlert.classList.add("d-none");
         passwordAlert.classList.add("d-none");
-        window.open('welcome-page.html',"_self")
+        loginState = checkForDataInLocalStorage();
+        if (loginState) {
+            window.open('welcome-page.html',"_self");
+        }
+        
     }
     
 });
@@ -75,9 +82,43 @@ export const exportObj = {
     passwordAlert,
     emailTestGlobalState,
     passwordTestGlobalState,
-    loginBtn,
+    userIndex,
     emailValidation,
     passwordValidation
 }
 
+function checkForDataInLocalStorage(){
+    const databBase = JSON.parse(localStorage.getItem("users-data"));
+    let emailFlag = false;
+    let passwordFlag = false;
+    let retVal = false;
+    for (let index = 0; index < databBase.length; index++) {
+        if (emailInput.value === databBase[index].email) {
+            emailFlag = true;
+            if (passwordInput.value === databBase[index].password) {
+                passwordFlag = true;
+                userIndex = index;
+            }
+        }
+    }
 
+    if (emailFlag === false) {
+        console.log("This email is not registered! Please signup if you don't have an account");
+        loginAlert.innerHTML = "This email is not registered! Please sign up if you don't have an account."
+        loginAlert.classList.remove("d-none");
+    }
+    else
+    {
+        if (passwordFlag === false) {
+            console.log("Password is incorrect! Please enter a correct password.");
+            loginAlert.innerHTML = "Password is incorrect! Please enter a correct password."
+            loginAlert.classList.remove("d-none");
+        }
+        else{
+            loginAlert.classList.add("d-none");
+            retVal = true;
+        }
+    }
+    return retVal;
+}
+console.log(JSON.parse(localStorage.getItem("users-data")));
