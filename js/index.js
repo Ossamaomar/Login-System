@@ -3,6 +3,7 @@
 import { exportObj } from "./utils.js";
 const loginBtn = document.querySelector(".login-btn");
 const loginAlert = document.querySelector(".login-alert");
+const signupLink = document.querySelector(".signup-link");
 
 
 // Adding an event listener to the email input field to handle the email validation from the user
@@ -69,6 +70,10 @@ loginBtn.addEventListener('click', function(){
     
 });
 
+
+signupLink.addEventListener('click', function(){
+    window.open("../pages/signup-page.html", '_self');
+});
 
 // This function checks whether the email entered by the user is registered or not
 function checkForDataInLocalStorage(){

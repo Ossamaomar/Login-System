@@ -98,6 +98,11 @@ body::before
     margin-bottom: 0;
 }
 
+.signup-link, .login-link
+{
+    cursor: pointer;
+}
+
 /* .email-alert
 {
     position: absolute;
