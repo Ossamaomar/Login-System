@@ -1,4 +1,4 @@
-
+"use strict";
 
 const logoutBtn = document.querySelector(".logout-btn");
 const usernameSpan = document.querySelector(".user-name-span");
