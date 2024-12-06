@@ -1,4 +1,4 @@
-"use strict";
+
 
 import { exportObj } from "./utils.js";
 const loginBtn = document.querySelector(".login-btn");

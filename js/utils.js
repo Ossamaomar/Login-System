@@ -1,4 +1,4 @@
-"use strict";
+
 
 // This file contains the definition of the shared elements,variables and functions between the modules.
 const emailInput = document.querySelector("#emailInput");
