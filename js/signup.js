@@ -5,7 +5,6 @@ const usernameInput = document.querySelector("#usernameInput");
 const signupBtn = document.querySelector(".signup-btn");
 const usernameAlert = document.querySelector(".username-alert");
 const signupAlert = document.querySelector(".signup-alert");
-const loginLink = document.querySelector(".login-link");
 let usernameGlobalState = false;
 let usersContainer = [];
 
@@ -101,11 +100,7 @@ signupBtn.addEventListener('click', function(){
         }
         
     }
-});
-
-loginLink.addEventListener('click', function(){
-    window.open('../index.html', '_self');
-});
+})
 
 // This applies a check to the username entered with the regex according to it
 function usernameValidation(username){
